@@ -1,0 +1,51 @@
+﻿<Window x:Class="Prakt11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prakt11"
+        mc:Ignorable="d"
+        Title="Практическая работа №11" Height="450" Width="800" ResizeMode="CanMinimize" Icon="/FLGRUS.ICO">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.ColumnSpan="2" VerticalAlignment="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выход" Click="miExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Команды">
+                <MenuItem Header="Искать совпадения в 1-й строке" Click="btnRegexFirst_Click"/>
+                <MenuItem Header="Искать совпадения во 2-й строке" Click="btnRegexSecond_Click"/>
+            </MenuItem>
+            <MenuItem Header="О программе" Click="miInfo_Click"/>
+        </Menu>
+        <GroupBox Header="Строка 1" Margin="5,20" FontSize="14">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="tbStringFirst" Text="aa aba abba abbba abca abea" TextWrapping="Wrap" Margin="5"/>
+                <Button Content="Искать совпадения" Grid.Row="1" Margin="5" Click="btnRegexFirst_Click"/>
+                <Label Content="Результат" Grid.Row="2" VerticalAlignment="Top" Margin="5"/>
+                <ListBox x:Name="listBoxResultFirst" Grid.Row="2" VerticalAlignment="Bottom" Margin="5" Height="205"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Строка 2" Grid.Column="1" Margin="5,20" FontSize="14">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="tbStringSecond" Text="23 2+3 2++3 2+++3 445 677" TextWrapping="Wrap" Margin="5"/>
+                <Button Content="Искать совпадения" Grid.Row="1" Margin="5" Click="btnRegexSecond_Click"/>
+                <Label Content="Результат" Grid.Row="2" VerticalAlignment="Top" Margin="5"/>
+                <ListBox x:Name="listBoxResultSecond" Grid.Row="2" VerticalAlignment="Bottom" Margin="5" Height="205"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
